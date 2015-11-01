@@ -3,14 +3,14 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Literal extends AsciidocObject {
+public class Italic extends AsciidocObject {
 
-    public Literal(Object contents) {
+    public Italic(Object contents) {
         super(contents);
     }
 
     @Override
     public String toString() {
-        return " " + contents.toString();
+        return "__" + contents + "__";
     }
 }

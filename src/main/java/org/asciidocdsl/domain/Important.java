@@ -3,16 +3,11 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Important {
+public class Important extends AsciidocObject {
 
-    private final Paragraph contents;
 
     public Important(Object contents) {
-        this.contents = new Paragraph(contents);
-    }
-
-    public Paragraph getContents() {
-        return contents;
+        super(contents);
     }
 
     @Override

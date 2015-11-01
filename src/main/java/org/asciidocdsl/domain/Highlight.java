@@ -3,14 +3,15 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Literal extends AsciidocObject {
+public class Highlight extends AsciidocObject {
 
-    public Literal(Object contents) {
+
+    public Highlight(Object contents) {
         super(contents);
     }
 
     @Override
     public String toString() {
-        return " " + contents.toString();
+        return "#" + contents.toString() + "#";
     }
 }

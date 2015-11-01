@@ -3,14 +3,14 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Literal extends AsciidocObject {
+public class LeadParagraph extends Paragraph {
 
-    public Literal(Object contents) {
+    public LeadParagraph(Object contents) {
         super(contents);
     }
 
     @Override
     public String toString() {
-        return " " + contents.toString();
+        return "[.lead]\n" + super.toString();
     }
 }

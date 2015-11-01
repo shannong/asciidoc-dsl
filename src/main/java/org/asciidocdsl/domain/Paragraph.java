@@ -3,16 +3,10 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Paragraph {
-
-    private final Object contents;
+public class Paragraph extends AsciidocObject {
 
     public Paragraph(Object contents) {
-        this.contents = contents;
-    }
-
-    public Object getContents() {
-        return contents;
+        super(contents);
     }
 
     @Override
