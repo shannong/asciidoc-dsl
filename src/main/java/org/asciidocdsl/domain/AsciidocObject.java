@@ -3,15 +3,11 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public abstract class AsciidocObject {
+public abstract class AsciidocObject<T> {
 
-    protected final Object contents;
+    protected T contents;
 
-    public AsciidocObject(Object contents) {
-        this.contents = contents;
-    }
-
-    public final Object getContents() {
+    public final T getContents() {
         return contents;
     }
 }
