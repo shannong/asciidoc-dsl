@@ -3,11 +3,12 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/5/15.
  */
-public class ListItem extends AsciidocObject {
+public class ListItem implements AsciidocObject {
 
     private int nestingLevel;
+    private AsciidocObject contents;
 
-    public ListItem(int nestingLevel, Object contents) {
+    public ListItem(int nestingLevel, AsciidocObject contents) {
         this.nestingLevel = nestingLevel;
         this.contents = contents;
     }

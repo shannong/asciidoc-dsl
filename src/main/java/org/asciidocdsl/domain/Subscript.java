@@ -3,10 +3,12 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Subscript extends AsciidocObject {
+public class Subscript implements AsciidocObject {
 
-    public Subscript(Object contents) {
-        super(contents);
+    private final AsciidocObject contents;
+
+    public Subscript(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override

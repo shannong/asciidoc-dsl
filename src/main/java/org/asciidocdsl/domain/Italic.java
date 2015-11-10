@@ -3,10 +3,12 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Italic extends AsciidocObject {
+public class Italic implements AsciidocObject {
 
-    public Italic(Object contents) {
-        super(contents);
+    private final AsciidocObject contents;
+
+    public Italic(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override

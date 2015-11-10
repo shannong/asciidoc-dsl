@@ -3,11 +3,14 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Superscript extends AsciidocObject {
+public class Superscript implements AsciidocObject {
 
-    public Superscript(Object contents) {
-        super(contents);
+    private final AsciidocObject contents;
+
+    public Superscript(AsciidocObject contents) {
+        this.contents = contents;
     }
+
 
     @Override
     public String toString() {

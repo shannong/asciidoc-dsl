@@ -6,9 +6,10 @@ import java.util.LinkedHashMap;
 /**
  * Created by Shannon on 11/5/15.
  */
-public abstract class List extends AsciidocObject<java.util.List<ListItem>> {
+public abstract class List implements AsciidocObject {
 
     protected char prefix;
+    private java.util.List<ListItem> contents = new ArrayList<ListItem>();
 
     public List(char prefix) {
         contents = new ArrayList<ListItem>();
@@ -26,7 +27,7 @@ public abstract class List extends AsciidocObject<java.util.List<ListItem>> {
                 builder.append(prefix);
             }
 
-            builder.append(item.getContents().toString());
+            builder.append(item.toString());
             builder.append("\n");
         }
 

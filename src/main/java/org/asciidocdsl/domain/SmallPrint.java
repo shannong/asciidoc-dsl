@@ -3,10 +3,12 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class SmallPrint extends AsciidocObject {
+public class SmallPrint implements AsciidocObject {
 
-    public SmallPrint(Object contents) {
-        super(contents);
+    private final AsciidocObject contents;
+
+    public SmallPrint(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override

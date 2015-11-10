@@ -3,10 +3,12 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Literal extends AsciidocObject {
+public class Literal implements AsciidocObject {
 
-    public Literal(Object contents) {
-        super(contents);
+    private final AsciidocObject contents;
+
+    public Literal(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override

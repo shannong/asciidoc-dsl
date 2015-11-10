@@ -1,5 +1,7 @@
 package org.asciidocdsl;
 
+import org.asciidocdsl.domain.Document;
+
 /**
  * Created by Shannon on 11/1/15.
  */
@@ -15,8 +17,8 @@ public class AsciidocBuilder {
         return instance;
     }
 
-    public String buildAsciidoc(Object asciidocObject) {
-        return asciidocObject.toString();
+    public String buildAsciidoc(Document document) {
+        return document.toString();
     }
 
 

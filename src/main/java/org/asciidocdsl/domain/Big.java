@@ -3,14 +3,18 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Big extends AsciidocObject {
+public class Big implements AsciidocObject {
 
-    public Big(Object contents) {
-        super(contents);
+    private AsciidocObject contents;
+
+    public Big(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override
     public String toString() {
         return "[big]##" + contents.toString() + "##";
     }
+
+
 }

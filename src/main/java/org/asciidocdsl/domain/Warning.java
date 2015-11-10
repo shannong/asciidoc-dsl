@@ -3,10 +3,12 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Warning extends AsciidocObject {
+public class Warning implements AsciidocObject {
 
-    public Warning(Object contents) {
-        super(contents);
+    private final AsciidocObject contents;
+
+    public Warning(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override

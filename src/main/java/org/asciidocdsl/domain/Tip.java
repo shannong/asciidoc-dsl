@@ -3,10 +3,12 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Tip extends AsciidocObject {
+public class Tip implements AsciidocObject {
 
-    public Tip(Object contents) {
-        super(contents);
+    private final AsciidocObject contents;
+
+    public Tip(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override

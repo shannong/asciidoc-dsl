@@ -5,14 +5,17 @@ import org.asciidocdsl.AsciidocBuilder;
 /**
  * Created by Shannon on 11/1/15.
  */
-public class Bold extends AsciidocObject {
+public class Bold implements AsciidocObject {
 
-    public Bold(Object contents) {
-        super(contents);
+    private AsciidocObject contents;
+
+    public Bold(AsciidocObject contents) {
+        this.contents = contents;
     }
 
     @Override
     public String toString() {
         return "**" + contents.toString() + "**";
     }
+
 }
