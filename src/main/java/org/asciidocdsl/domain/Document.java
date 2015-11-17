@@ -8,14 +8,14 @@ import java.util.List;
 /**
  * Created by Shannon on 11/3/15.
  */
-public class Document {
+public class Document implements Renderable {
 
-    private List<AsciidocObject> contents = new ArrayList<AsciidocObject>();
+    private List<Renderable> contents = new ArrayList<Renderable>();
     private String header;
     private String author;
     private String revision;
 
-    public void add(AsciidocObject asciidocObject) {
+    public void add(Renderable asciidocObject) {
         contents.add(asciidocObject);
     }
 
@@ -44,8 +44,7 @@ public class Document {
     }
 
     @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
+    public void render(StringBuilder builder) {
         boolean hasHeader = false;
         if (StringUtils.isNotBlank(header)) {
             builder.append("= " + header + "\n");
@@ -66,11 +65,9 @@ public class Document {
             builder.append("\n");
         }
 
-        for (AsciidocObject object : contents) {
-            builder.append(object.toString());
-            hasHeader = true;
+        for (Renderable object : contents) {
+            object.render(builder);
+            builder.append("\n");
         }
-
-        return builder.toString();
     }
 }

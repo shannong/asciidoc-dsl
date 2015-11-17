@@ -3,7 +3,7 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/5/15.
  */
-public class ListItem implements AsciidocObject {
+public class ListItem {
 
     private int nestingLevel;
     private AsciidocObject contents;

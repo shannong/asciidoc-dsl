@@ -1,12 +1,11 @@
 package org.asciidocdsl.domain;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 
 /**
  * Created by Shannon on 11/5/15.
  */
-public abstract class List implements AsciidocObject {
+public abstract class List {
 
     protected char prefix;
     private java.util.List<ListItem> contents = new ArrayList<ListItem>();
