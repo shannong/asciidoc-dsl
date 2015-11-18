@@ -76,11 +76,61 @@ public class AsciidocBuilder {
         return new Decoration("CAUTION: ", renderable);
     }
 
+    public static Renderable lead(String text) {
+        return lead(new StringRenderable(text));
+    }
+
+    public static Renderable lead(Renderable renderable) {
+        return new Decoration("[.lead]\n", renderable);
+    }
+
+    public static Renderable italic(String text) {
+        return italic(new StringRenderable(text));
+    }
+
+    public static Renderable italic(Renderable renderable) {
+        return new Decoration("__", renderable, "__");
+    }
+
     public static Renderable bold(String text) {
         return bold(new StringRenderable(text));
     }
 
-    private static Renderable bold(Renderable renderable) {
+    public static Renderable bold(Renderable renderable) {
         return new Decoration("**", renderable, "**");
     }
+
+
+    public static Renderable monospace(String text) {
+        return monospace(new StringRenderable(text));
+    }
+
+    public static Renderable monospace(Renderable renderable) {
+        return new Decoration("``", renderable, "``");
+    }
+
+    public static Renderable highlight(String text) {
+        return highlight(new StringRenderable(text));
+    }
+
+    public static Renderable highlight(Renderable renderable) {
+        return new Decoration("#", renderable, "#");
+    }
+
+    public static Renderable small(String text) {
+        return small(new StringRenderable(text));
+    }
+
+    public static Renderable small(Renderable renderable) {
+        return new Decoration("[small]#", renderable, "#");
+    }
+
+    public static Renderable big(String text) {
+        return big(new StringRenderable(text));
+    }
+
+    public static Renderable big(Renderable renderable) {
+        return new Decoration("[big]##", renderable, "##");
+    }
+
 }
