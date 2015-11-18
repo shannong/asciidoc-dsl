@@ -133,4 +133,36 @@ public class AsciidocBuilder {
         return new Decoration("[big]##", renderable, "##");
     }
 
+    public static Renderable superscript(String text) {
+        return superscript(new StringRenderable(text));
+    }
+
+    public static Renderable superscript(Renderable renderable) {
+        return new Decoration("^", renderable, "^");
+    }
+
+    public static Renderable subscript(String text) {
+        return subscript(new StringRenderable(text));
+    }
+
+    public static Renderable subscript(Renderable renderable) {
+        return new Decoration("~", renderable, "~");
+    }
+
+    public static Renderable singleCurvedQuotes(String text) {
+        return singleCurvedQuotes(new StringRenderable(text));
+    }
+
+    public static Renderable singleCurvedQuotes(Renderable renderable) {
+        return new Decoration("'`", renderable, "`'");
+    }
+
+    public static Renderable doubleCurvedQuotes(String text) {
+        return doubleCurvedQuotes(new StringRenderable(text));
+    }
+
+    public static Renderable doubleCurvedQuotes(Renderable renderable) {
+        return new Decoration("\"`", renderable, "`\"");
+    }
+
 }
