@@ -165,4 +165,24 @@ public class AsciidocBuilder {
         return new Decoration("\"`", renderable, "`\"");
     }
 
+    public static Renderable sectionTitle(int level, String text) {
+        return sectionTitle(level, new StringRenderable(" " + text));
+    }
+
+    public static Renderable sectionTitle(int level, Renderable renderable) {
+        if (level >= 5 || level <= 0) {
+            throw new IllegalArgumentException("Section level cannot be greater than 5 or less than 1");
+        }
+
+        return sectionTitle(level - 1, new Decoration("=", renderable));
+    }
+
+    public static Renderable horizontalRule() {
+        return new StringRenderable("'''");
+    }
+
+    public static Renderable pageBreak() {
+        return new StringRenderable("<<<");
+    }
+
 }
