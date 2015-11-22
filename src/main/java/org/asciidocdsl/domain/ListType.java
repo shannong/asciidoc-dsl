@@ -1,4 +1,4 @@
-package org.asciidocdsl;
+package org.asciidocdsl.domain;
 
 /**
  * Created by Shannon on 11/18/15.
@@ -13,5 +13,9 @@ public enum ListType {
 
     private ListType(String leadCharacter) {
         this.leadCharacter = leadCharacter;
+    }
+
+    public String getLeadCharacter() {
+        return leadCharacter;
     }
 }
