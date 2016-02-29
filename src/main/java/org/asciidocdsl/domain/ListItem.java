@@ -3,26 +3,21 @@ package org.asciidocdsl.domain;
 /**
  * Created by Shannon on 11/5/15.
  */
-public class ListItem {
+public class ListItem implements Listable<Renderable> {
 
-    private int nestingLevel;
-    private AsciidocObject contents;
+    private final Renderable contents;
 
-    public ListItem(int nestingLevel, AsciidocObject contents) {
-        this.nestingLevel = nestingLevel;
+    public ListItem(Renderable contents) {
         this.contents = contents;
     }
 
-    public int getNestingLevel() {
-        return nestingLevel;
+    public Renderable getItem() {
+        return contents;
     }
 
-    public void setNestingLevel(int nestingLevel) {
-        this.nestingLevel = nestingLevel;
-    }
-
-    @Override
-    public String toString() {
-        return " " + contents.toString();
+    public void render(StringBuilder stringBuilder) {
+        stringBuilder.append(" ");
+        contents.render(stringBuilder);
+        stringBuilder.append("\n");
     }
 }

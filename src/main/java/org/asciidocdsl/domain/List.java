@@ -3,34 +3,32 @@ package org.asciidocdsl.domain;
 import java.util.ArrayList;
 
 /**
- * Created by Shannon on 11/5/15.
+ * Created by Shannon on 11/22/15.
  */
-public abstract class List {
+public class List implements Listable<java.util.List<Renderable>>, Renderable {
 
-    protected char prefix;
-    private java.util.List<ListItem> contents = new ArrayList<ListItem>();
+    private final String prefix;
+    private final java.util.List<Renderable> list = new ArrayList<Renderable>();
 
-    public List(char prefix) {
-        contents = new ArrayList<ListItem>();
+    public List(String prefix) {
+        this.prefix = prefix;
     }
 
-    public void addItem(ListItem item) {
-        contents.add(item);
+    public java.util.List<Renderable> getItem() {
+        return list;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (ListItem item : contents) {
-            for (int i = 0; i < item.getNestingLevel(); i++) {
-                builder.append(prefix);
+    public void add(Listable item) {
+        list.add(item);
+    }
+
+    public void render(StringBuilder stringBuilder) {
+        for (Renderable item : list) {
+            if (!(item instanceof List)) {
+                stringBuilder.append(prefix);
             }
 
-            builder.append(item.toString());
-            builder.append("\n");
+            item.render(stringBuilder);
         }
-
-        builder.append("\n");
-        return builder.toString();
     }
 }
