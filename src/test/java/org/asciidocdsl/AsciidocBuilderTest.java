@@ -1,6 +1,7 @@
 package org.asciidocdsl;
 
 import org.asciidocdsl.domain.Document;
+import org.asciidocdsl.domain.ListType;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,6 +35,29 @@ public class AsciidocBuilderTest {
     public void testNesting() {
         document.add(AsciidocBuilder.bold(AsciidocBuilder.italic("test bold italic")));
         assertEquals("**__test bold italic__**\n", AsciidocBuilder.buildAsciidoc(document));
+    }
+
+    @Test
+    public void testList() {
+        ListBuilder listBuilder = ListBuilder.buildListBuilder(ListType.UNORDERED)
+                .addItem("Item 1")
+                .addItem("Item 2")
+                .addItem("Item 3");
+        document.add(listBuilder.buildList());
+        assertEquals("* Item 1\n* Item 2\n* Item 3\n\n", AsciidocBuilder.buildAsciidoc(document));
+    }
+
+    @Test
+    public void testSubList() {
+        ListBuilder listBuilder = ListBuilder.buildListBuilder(ListType.UNORDERED)
+                .addItem("Item 1")
+                .addItem("Item 2")
+                .addSubList(ListBuilder.buildSubListBuilder(ListType.UNORDERED, 2)
+                    .addItem("Sub Item 1")
+                    .addItem("Sub Item 2"));
+                listBuilder = listBuilder.addItem("Item 3");
+        document.add(listBuilder.buildList());
+        assertEquals("* Item 1\n* Item 2\n** Sub Item 1\n** Sub Item 2\n* Item 3\n\n", AsciidocBuilder.buildAsciidoc(document));
     }
 
 }
