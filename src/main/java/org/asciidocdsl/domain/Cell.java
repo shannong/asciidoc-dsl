@@ -15,6 +15,7 @@ public class Cell implements Renderable {
     public void render(StringBuilder stringBuilder) {
         stringBuilder.append("| ");
         contents.render(stringBuilder);
+        stringBuilder.append("\n");
     }
 
 }
