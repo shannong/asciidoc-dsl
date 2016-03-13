@@ -1,0 +1,2 @@
+# asciidoc-dsl
+Asciidoc is a powerful rendering engine for producing beautiful HTML, PDF, and EPUB3 output.  However, building Asciidoc syntax in Java can be cumbersome.  Asciidoc-DSL seeks to overcome this problem by allowing users to generate natural object graphs representing the document structure they wish to produce.  Asciidoc-DSL then renders the document in a format that can be used as an input to AascidoctorJ to produce the desired output.
