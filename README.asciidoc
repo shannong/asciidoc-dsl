@@ -8,5 +8,12 @@ Asciidoc-DSL then renders the document in a format that can be used as an input 
 
 [source,java]
 --
+        Document document = new Document();
+        document.add(AsciidocBuilder.paragraph(AsciidocBuilder.big("Hello Asciidoc-DSL!")));
+        document.add(AsciidocBuilder.horizontalRule());
 
+        document.add(ListBuilder.buildListBuilder(ListType.UNORDERED).addItem("Item 1").addItem("Item 2").buildList());
+
+        StringBuilder stringBuilder = new StringBuilder();
+        document.render(stringBuilder);
 --
