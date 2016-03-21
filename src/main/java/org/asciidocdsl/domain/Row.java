@@ -7,16 +7,31 @@ import java.util.ArrayList;
  */
 public class Row implements Renderable {
 
-    private java.util.List<Cell> cells = new ArrayList<Cell>();
+    private final boolean isHeader;
+    private final java.util.List<Cell> cells = new ArrayList<>();
 
-    public Row(){}
+    public Row(boolean isHeader) {
+        this.isHeader = isHeader;
+    }
 
     public void addCell(Cell cell) {
         cells.add(cell);
     }
 
+    void addCell(Cell cell, int column) {
+        cells.add(column, cell);
+    }
+
     public void addCell(String contents) {
         cells.add(new Cell(new StringRenderable(contents)));
+    }
+
+    public boolean isEmptyCell(int column) {
+        return cells.get(column) == null;
+    }
+
+    public boolean isEmpty() {
+        return cells.isEmpty();
     }
 
     @Override
@@ -25,6 +40,8 @@ public class Row implements Renderable {
             cell.render(stringBuilder);
         }
 
-        stringBuilder.append("\n");
+        if (!isHeader) {
+            stringBuilder.append("\n");
+        }
     }
 }

@@ -5,6 +5,11 @@ package org.asciidocdsl.domain;
  */
 public class Cell implements Renderable {
 
+    private int columns;
+    private int rows;
+    private VerticalAlignment verticalAlignment;
+    private HorizontalAlignment horizontalAlignment;
+
     private Renderable contents;
 
     public Cell(Renderable contents) {
